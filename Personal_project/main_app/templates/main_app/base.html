@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
+    <title>Reema | Portfolio</title>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <a href="{% url 'main_app:home_view' %}">
+            <img src="{% static 'images/portfolio_logo.png' %}" alt="Portfolio Logo">
+        </a>
+    </div>
+    <nav>
+        <ul>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">About</a>
+                <div class="dropdown-content">
+                    <a href="{% url 'education_app:education_list_view' %}">Education</a>
+                    <a href="{% url 'main_app:resume_view' %}">My Resume</a>
+                </div>
+            </li>
+            <li><a href="{% url 'education_app:skills_view' %}">Skills</a></li>
+            <li><a href="{% url 'experience_app:experience_list_view' %}">Experience</a></li>
+            <li><a href="{% url 'projects_app:project_list_view' %}">Projects</a></li>
+            <li><a href="{% url 'main_app:contact_view' %}">Contact Me</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+<footer>
+    <p>Reema Albrahim</p>
+    <div class="footer-links">
+        <a href="https://www.linkedin.com/in/reema-albrahim-a62a14232/"><i class="fa-brands fa-linkedin "></i></a>
+        <a href="mailto:reemaalbrahim28@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+        <a href="tel:+966564463367" class="phone-icon">
+            <i class="fa-solid fa-phone"></i>
+            <span class="tooltip">Call +966564463367</span>
+        </a>
+    </div>
+</footer>
+
+</body>
+</html>
+

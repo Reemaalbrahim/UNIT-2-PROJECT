@@ -1,0 +1,184 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #002352;
+    position: sticky;
+}
+
+.logo img {
+    height: 80px; 
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #c4ddff;
+}
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute; /* Position it below the dropdown */
+    background-color: #f9f9f9;
+    min-width: 160px; /* Set a minimum width */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black; /* Link color */
+    padding: 12px 16px; /* Padding for dropdown links */
+    text-decoration: none;
+    display: block; /* Block display for links */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Show the dropdown on hover */
+}
+.dropdown-content a:hover {
+    background-color: #c4ddff; /* Change background for dropdown links on hover */
+}
+
+.home-background {
+    background-image: url('/static/images/ai.png');
+    background-color: #002352;
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    color: #f2f8f3;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100vh;
+}
+
+.welcome-text {
+    color: #e3ebed;
+    font-size: 25px;
+    text-align: right; /* Align text to the right */
+    margin: 0;
+    margin-bottom: 60px; 
+    margin-top: 50px; 
+    position: absolute; /* Use absolute positioning */
+    top: 220px; /* Adjust this value to set the distance from the top */
+    right: 60px; /* Adjust this value to set the distance from the right */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #002352;
+    color: #c4ddff;
+    padding: 10px 0;
+    bottom: 0;
+
+}
+
+.footer-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #e3ebed;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.container a {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.container a:hover {
+    background-color: #0056b3;
+}
+
+.phone-icon {
+    position: relative; /* Needed for tooltip positioning */
+    display: inline-block; /* Ensures the tooltip is positioned correctly */
+}
+
+.tooltip {
+    visibility: hidden; /* Hidden by default */
+    width: 120px; /* Width of the tooltip */
+    background-color: #868d8f; /* Tooltip background color */
+    color: #fff; /* Tooltip text color */
+    text-align: center; /* Center text */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px; /* Padding */
+    position: absolute; /* Position relative to the phone icon */
+    z-index: 1; /* Ensure it appears above other elements */
+    bottom: 125%; /* Position above the icon */
+    left: 50%; /* Center horizontally */
+    margin-left: -40px; /* Adjust for centering */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s; /* Fade effect */
+}
+
+.phone-icon:hover .tooltip {
+    visibility: visible; /* Show tooltip on hover */
+    opacity: 1; /* Fade in */
+}
+
+.contact-welcome-text {
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px; /* Rounded corners for the welcome section */
+    margin: 20px; /* Margin around the welcome section */
+}
+.contact-container {
+    display: flex;
+    color: #c4ddff; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(70vh - 100px); /* Adjust height to center the form */
+}
+.form-group {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px 0; /* Space between form groups */
+}
+.form-control {
+    width: 300px; /* Set a fixed width for input fields */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc; /* Light border for input fields */
+}
+.contact-btn-primary {
+    background-color: #0056b3; /* Button color */
+    color: white; /* Button text color */
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 40px;
+}
+.contact-btn-primary:hover {
+    background-color: #004494; /* Darker button color on hover */
+}

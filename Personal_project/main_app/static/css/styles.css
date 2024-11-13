@@ -182,3 +182,33 @@ footer {
 .contact-btn-primary:hover {
     background-color: #004494; /* Darker button color on hover */
 }
+.messages-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.message-box {
+    background-color: #1b3e6b;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.message-box h3 {
+    margin-top: 0;
+}
+
+.message-box p {
+    margin-bottom: 0;
+}
+
+.message-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+

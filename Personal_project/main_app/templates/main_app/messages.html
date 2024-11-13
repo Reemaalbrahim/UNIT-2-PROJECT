@@ -1,0 +1,30 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block title %}Messages{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #002352;
+        color: white;
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+</style>
+
+<div class="messages-container">
+    <h1>Messages from Users</h1>
+    <div class="message-grid">
+        {% for message in messages %}
+        <div class="message-box">
+            <h3>{{ message.first_name }} {{ message.last_name }}</h3>
+            <p>{{ message.email }}</p>
+            <p>{{ message.message }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+

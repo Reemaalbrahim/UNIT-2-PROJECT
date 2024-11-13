@@ -1,0 +1,53 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block title %}Resume{% endblock %}
+
+{% block content %}
+<style>
+    .resume-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 100px); /* Adjust the height to fit the viewport */
+        background-color: #002352;
+        padding-bottom: 30px; /* Add space between the content and the footer */
+        
+    }
+
+    .resume-header {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .resume-image {
+        max-width: 90%;
+        height: 90%;
+        margin-bottom: 10px; /* Add some space between the header and the image */
+    }
+
+    .download-btn {
+        background-color: #0056b3;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+    .download-btn:hover {
+        background-color: #83abe3;
+    }
+</style>
+
+<div class="resume-container">
+    <img src="{% static 'images/resume.jpg' %}" alt="Resume" class="resume-image">
+    <a href="{% static 'images/resume.jpg' %}" class="download-btn" download>Download Resume</a>
+</div>
+{% endblock %}
+

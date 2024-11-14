@@ -1,0 +1,130 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block title %}Skills{% endblock %}
+{% block content %}
+    <style>
+        body {
+            background-color: #002352;
+        }
+        .skills-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+        .skill-box {
+            background-color: #e3edfc;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 80%;
+            margin-bottom: 30px;
+        }
+        .skill-box h2 {
+            text-align: center;
+            color: #002352;
+            
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+        .skill-item:hover {
+            transform: scale(1.1);
+        }
+        .skill-item img {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #a6bcdb;
+        }
+        .skill-item span {
+            margin-top: 5px;
+        }
+    </style>
+
+    <h1 style="text-align: center; margin-top: 40px; color: #b9c8dd; background-color: #083e74; padding: 10px; border-radius: 5px;">Skills</h1>
+
+    <div class="skills-container">
+        <div class="skill-box">
+            <h2>Personal Skills</h2>
+            <div class="skill-items">
+                <div class="skill-item">
+                    <img src="{% static 'images/leadership.jpg' %}" alt="Leadership">
+                    <span>Leadership</span>
+                </div>
+                <div class="skill-item">
+                    <img src="{% static 'images/problemsolving.jpg' %}" alt="Problem Solving">
+                    <span>Problem Solving</span>
+                </div>
+                <div class="skill-item">
+                    <img src="{% static 'images/creativity.jpeg' %}" alt="Creativity">
+                    <span>Creativity</span>
+                </div>
+                <div class="skill-item">
+                    <img src="{% static 'images/teamwork.jpg' %}" alt="Teamwork">
+                    <span>Team work</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="skill-box">
+            <h2>Technical Skills</h2>
+            <div class="skill-items">
+                <div class="skill-item">
+                    <img src="{% static 'images/imagepro.png' %}" alt="Image Processing">
+                    <span>Image Processing</span>
+                </div>
+                <div class="skill-item">
+                    <img src="{% static 'images/c.jpg' %}" alt="C++">
+                    <span>C++</span>
+                </div>
+                <div class="skill-item">
+                    <img src="{% static 'images/java.jpg' %}" alt="Java">
+                    <span>Java</span>
+                </div>
+                <div class="skill-item">
+                    <img src="{% static 'images/python.png' %}" alt="Python">
+                    <span>Python</span>
+                </div>
+                <div class="skill-item">
+                    <img src="{% static 'images/html.jpg' %}" alt="HTML">
+                    <span>HTML</span>
+                </div>
+                <div class="skill-item">
+                    <img src="{% static 'images/mysql.jpg' %}" alt="MySQL">
+                    <span>MySQL</span>
+                </div>
+                <div class="skill-item">
+                    <img src="{% static 'images/ml.png' %}" alt="Machine Learning">
+                    <span>ML</span>
+                </div>
+                <div class="skill-item">
+                    <img src="{% static 'images/deeplearning.png' %}" alt="Deep Learning">
+                    <span>DL</span>
+                </div>
+                <div class="skill-item">
+                    <img src="{% static 'images/computervesion.jpg' %}" alt="Computer Vision">
+                    <span>Computer Vision</span>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+
+

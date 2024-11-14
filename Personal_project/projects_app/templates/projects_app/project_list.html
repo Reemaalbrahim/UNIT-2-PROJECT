@@ -1,0 +1,62 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block title %}My Projects{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #002352;
+    }
+
+    .project-list-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .project-card {
+        width: 16%;
+        margin: 1%;
+        background-color:#c4ddff;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .project-image {
+        width: 100%;
+        height: 210px;
+        object-fit: cover;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+    .project-content {
+        padding: 10px;
+    }
+
+    .project-title {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+    }
+
+    .project-description {
+        font-size: 0.9rem;
+    }
+</style>
+
+<h1 style="color: white; text-align: center; margin-top: 30px;">My Projects</h1>
+<div class="project-list-container">
+    {% for project in projects %}
+    <div class="project-card">
+        <img src="{{ project.image.url }}" alt="{{ project.title }}" class="project-image">
+        <div class="project-content">
+            <h2 class="project-title">{{ project.title }}</h2>
+            <p class="project-description">{{ project.description }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+

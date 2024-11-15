@@ -19,9 +19,9 @@
     <nav>
         <ul>
             <li class="dropdown">
-                <a href="#" class="dropbtn">About</a>
+                <a href="{% url 'main_app:home_view' %}#about">About</a>
                 <div class="dropdown-content">
-                    <a href="{% url 'education_app:education_list_view' %}">Education</a>
+                    <a href="{% url 'main_app:home_view' %}#education">Education</a>  
                     <a href="{% url 'projects_app:publications_view' %}">Publications</a>
                     <a href="{% url 'main_app:resume_view' %}">My Resume</a>
                 </div>
@@ -40,9 +40,10 @@
 </main>
 
 <footer>
-    <p>Reema Albrahim</p>
+    <p> &copy; 2024 by Reema Albrahim</p>
     <div class="footer-links">
         <a href="https://www.linkedin.com/in/reema-albrahim-a62a14232/"><i class="fa-brands fa-linkedin "></i></a>
+        <a href="https://github.com/Reemaalbrahim"><i class="fa-brands fa-github"></i></a>
         <a href="mailto:reemaalbrahim28@gmail.com"><i class="fa-solid fa-envelope"></i></a>
         <a href="tel:+966564463367" class="phone-icon">
             <i class="fa-solid fa-phone"></i>
@@ -53,4 +54,26 @@
 
 </body>
 </html>
+
+<script>
+    const typingText = document.querySelector('.typing-text');
+    const welcomeMessage = "This is Reema's portfolio";
+
+    let index = 0;
+    function typeWriter() {
+        if (index < welcomeMessage.length) {
+            typingText.textContent += welcomeMessage.charAt(index);
+            index++;
+            setTimeout(typeWriter, 100);
+        }
+    }
+
+    typeWriter();
+</script>
+
+
+
+
+
+
 

@@ -1,0 +1,89 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block title %}Experience List{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #1b3e6b;
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .experience-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 50px;
+        margin-bottom: 100px;
+    }
+
+    .experience-item {
+        background-color: #d5e4f9;
+        border-radius: 10px;
+        width: 300px;
+        height: 300px;
+        margin: 20px;
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .experience-item:hover {
+        transform: scale(1.05);
+    }
+
+    .experience-title {
+        background-color: #1b3e6b;
+        color: #d5e4f9;
+        border-radius: 10px 10px 0 0;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .experience-details {
+        padding: 20px;
+    }
+
+    .experience-details p {
+        color: #304d73;
+        margin-bottom: 10px;
+    }
+
+    .experience-details h4 {
+        color: #1b3e6b;
+        margin-bottom: 10px;
+    }
+
+    .decision {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+   
+</style>
+
+<h1 style="text-align: center; margin-top: 40px; color: #b9c8dd; padding: 20px; border-radius: 10px;">My Experiences</h1>
+
+<div class="experience-container">
+    {% for experience in experiences %}
+    <div class="experience-item">
+        <div class="experience-title">
+            <h3>{{ experience.title }}</h3>
+        </div>
+        <div class="experience-details">
+            <p>{{ experience.company }}</p>
+            <p>{{ experience.location }}</p>
+            <h4>Job description</h4>
+            <p>{{ experience.description }}</p>
+            
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+

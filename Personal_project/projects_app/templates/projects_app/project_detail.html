@@ -1,0 +1,39 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block title %}Project Detail{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #002352;
+        color: #002352;
+    }
+    .content-container {
+        background-color: #c4ddff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        max-width: 800px;
+        width: 100%;
+        margin: 50px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .image {
+        width: 100%;
+        max-height: 350px;
+    
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="content-container">
+    <h1>{{ project.title }}</h1>
+    <img src="{{ project.image.url }}" class="image">
+    <h4>{{ project.description }}</h4>
+</div>
+{% endblock %}
+

@@ -21,6 +21,12 @@
         background-color:#c4ddff;
         border-radius: 5px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        margin-bottom: 100px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .project-card:hover {
+        transform: translateY(-10px);
     }
 
     .project-image {
@@ -33,6 +39,11 @@
 
     .project-content {
         padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
 
     .project-title {
@@ -51,12 +62,12 @@
     <div class="project-card">
         <img src="{{ project.image.url }}" alt="{{ project.title }}" class="project-image">
         <div class="project-content">
-            <h2 class="project-title">{{ project.title }}</h2>
-            <p class="project-description">{{ project.description }}</p>
+            <a href ="{% url 'projects_app:project_detail_view' project.id %}"><h2 class="project-title">{{ project.title }}</h2></a>
         </div>
     </div>
     {% endfor %}
 </div>
 {% endblock %}
+
 
 

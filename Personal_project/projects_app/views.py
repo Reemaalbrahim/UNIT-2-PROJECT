@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Project
+from django.http import HttpRequest, HttpResponse
 
 def project_list_view(request):
     projects = Project.objects.all()
@@ -20,6 +21,12 @@ def publications_view(request):
 
     return render(request, 'projects_app/publications.html')
 
+
+def project_detail_view(request:HttpRequest, project_id:int):
+
+    project=Project.objects.get(pk=project_id)
+
+    return render(request, 'projects_app/project_detail.html', {"project":project})
 
 
 

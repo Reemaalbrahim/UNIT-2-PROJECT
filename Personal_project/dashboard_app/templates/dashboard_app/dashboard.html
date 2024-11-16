@@ -1,0 +1,66 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-container">
+    <h1>Reema's Dashboard</h1>
+
+    <h2>Experiences</h2>
+    <table class="experiences-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Company</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for experience in experiences %}
+            <tr>
+                <td>{{ experience.title }}</td>
+                <td>{{ experience.company }}</td>
+                <td>{{ experience.start_date }}</td>
+                <td>{% if experience.currently_working %}Present{% else %}{{ experience.end_date }}{% endif %}</td>
+                <td class="actions-cell">
+                    <a href="{% url 'dashboard_app:edit_experience_view' experience.id %}" class="edit-button">Edit</a>
+                    <a href="{% url 'dashboard_app:delete_experience_view' experience.id %}" class="delete-button">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Projects</h2>
+    <div class="projects-grid">
+        {% for project in projects %}
+        <div class="project-card">
+            <img src="{{ project.image.url }}" alt="{{ project.title }}" class="project-image">
+            <div class="project-content">
+                <h3>{{ project.title }}</h3>
+                <div class="project-actions">
+                    <a href="{% url 'dashboard_app:edit_project_view' project.id %}" class="edit-button">Edit</a>
+                    <a href="{% url 'dashboard_app:delete_project_view' project.id %}" class="delete-button">Delete</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <h2>Messages</h2>
+    <div class="messages-grid">
+        {% for message in messages %}
+        <div class="message-box">
+            <h3>{{ message.first_name }} {{ message.last_name }}</h3>
+            <p>{{ message.email }}</p>
+            <p>{{ message.message }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+

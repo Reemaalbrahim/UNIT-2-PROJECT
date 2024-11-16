@@ -1,0 +1,18 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block title %}Edit Experience{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <h1>Edit Experience</h1>
+    <form method="post" class="form-container">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="form-actions">
+            <button type="submit" class="submit-button">Save</button>
+            <a href="{% url 'dashboard_app:dashboard_view' %}" class="cancel-button">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

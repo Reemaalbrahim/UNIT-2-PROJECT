@@ -263,7 +263,7 @@ footer {
 .experiences-table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 }
 
 .experiences-table th,
@@ -349,4 +349,16 @@ footer {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     padding: 1.5rem;
+}
+.add-button.green-button {
+    color: #17711b;
+    border: none;
+    padding: 0.5rem 0.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 4rem;
+}
+
+.add-button.green-button:hover {
+    background-color: #86c9a9; /* Darker green on hover */
 }

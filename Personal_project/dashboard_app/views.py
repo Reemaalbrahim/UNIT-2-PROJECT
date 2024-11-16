@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from experience_app.models import Experience
 from projects_app.models import Project
 from main_app.models import Message
+from django.http import HttpRequest, HttpResponse
 
 def dashboard_view(request):
     experiences = Experience.objects.all().order_by('-start_date')
@@ -15,42 +16,48 @@ def dashboard_view(request):
     }
     return render(request, 'dashboard_app/dashboard.html', context)
 
-def add_experience_view(request):
-    if request.method == 'POST':
-        # Handle form submission and create a new experience
-        pass
-    return render(request, 'dashboard_app/add_experience.html')
-
-def edit_experience_view(request, experience_id):
+def edit_experience_view(request:HttpRequest, experience_id:int):
     experience = Experience.objects.get(id=experience_id)
     if request.method == 'POST':
-        # Handle form submission and update the experience
-        pass
+        experience.title=request.POST["title"]
+        experience.employment_type=request.POST["employment_type"]
+        experience.company=request.POST["company"]
+        experience.currently_working = request.POST.get("currently_working", False)
+        experience.start_date=request.POST["start_date"]
+        experience.end_date=request.POST["end_date"]
+        experience.location=request.POST["location"]
+        experience.description=request.POST["description"]
+        experience.save()
+   
     return render(request, 'dashboard_app/edit_experience.html', {'experience': experience})
 
-def delete_experience_view(request, experience_id):
+def delete_experience_view(request:HttpRequest, experience_id:int):
     experience = Experience.objects.get(id=experience_id)
-    if request.method == 'POST':
-        # Handle form submission and delete the experience
-        pass
-    return render(request, 'dashboard_app/delete_experience.html', {'experience': experience})
+    experience.delete()
 
-def add_project_view(request):
-    if request.method == 'POST':
-        # Handle form submission and create a new project
-        pass
-    return render(request, 'dashboard_app/add_project.html')
+    return redirect("main_app:home_view")
 
-def edit_project_view(request, project_id):
+
+def edit_project_view(request:HttpRequest, project_id:int):
+
     project = Project.objects.get(id=project_id)
     if request.method == 'POST':
-        # Handle form submission and update the project
-        pass
+        project.title=request.POST["title"]
+        project.description=request.POST["description"]
+
+        if "image" in request.FILES:
+            project.image=request.FILES["image"]
+
+        project.save()
+
     return render(request, 'dashboard_app/edit_project.html', {'project': project})
 
-def delete_project_view(request, project_id):
+def delete_project_view(request:HttpRequest, project_id:int):
+
     project = Project.objects.get(id=project_id)
-    if request.method == 'POST':
-        # Handle form submission and delete the project
-        pass
-    return render(request, 'dashboard_app/delete_project.html', {'project': project})
+    project.delete()
+
+    return redirect("main_app:home_view")
+    
+
+    

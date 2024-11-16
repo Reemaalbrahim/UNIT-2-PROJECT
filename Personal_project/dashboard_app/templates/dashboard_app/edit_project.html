@@ -1,0 +1,83 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block title %}Edit Project{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #002352;
+    }
+
+    .project-form-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 100px);
+    }
+
+    .project-form {
+        width: 80%;
+        max-width: 600px;
+        padding: 30px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+    }
+
+    .project-form input[type=text], .project-form textarea {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #002352;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .project-form input[type=file] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #002352;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .project-form button {
+        background-color: #002352;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .project-form button:hover {
+        background-color: #7b98c0;
+    }
+</style>
+
+
+<div class="project-form-container">
+    <div class="contact-welcome-text">
+        <h2>Edit Project</h2>
+    </div>
+    <form class="project-form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" placeholder="Enter project title" value="{{project.title}}">
+
+        <label for="image">Image:</label>
+        <input type="file" id="image" name="image" required>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" placeholder="Enter project description" required>{{project.description}}</textarea>
+
+        <button type="submit">Edit Project</button>
+    </form>
+</div>
+{% endblock %}

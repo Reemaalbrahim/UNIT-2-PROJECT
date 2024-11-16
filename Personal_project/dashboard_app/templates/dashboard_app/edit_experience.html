@@ -1,18 +1,100 @@
 {% extends 'main_app/base.html' %}
 {% load static %}
-
 {% block title %}Edit Experience{% endblock %}
 
 {% block content %}
-<div class="dashboard-container">
-    <h1>Edit Experience</h1>
-    <form method="post" class="form-container">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <div class="form-actions">
-            <button type="submit" class="submit-button">Save</button>
-            <a href="{% url 'dashboard_app:dashboard_view' %}" class="cancel-button">Cancel</a>
-        </div>
-    </form>
+<style>
+    body {
+        background-color: #002352; 
+        color: #c4ddff; 
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .experience-container {
+        background-color: #1b3e6b;
+        padding: 40px;
+        border-radius: 10px;
+        width: 80%;
+        max-width: 600px;
+    }
+    .experience-background {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+    .experience-btn-primary {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: block;
+        margin: 20px auto 0; /* Adjust the top margin as needed */
+    }
+</style>
+
+<div class="experience-background">
+    <div class="experience-container">
+        <h1 style="text-align: center;">Edit Experience</h1>
+        <form method="post" action="{% url 'dashboard_app:edit_experience_view' experience.id %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="title">Job Title:</label>
+                <input type="text" id="title" name="title" class="form-control" placeholder="Enter job title" value="{{experience.title}}">
+            </div>
+            <div class="form-group">
+                <label for="employment_type">Employment Type:</label>
+                <select id="employment_type" name="employment_type" class="form-control" required>
+                    <option value="select_employment_type">Select employment type</option>
+                    <option value="full_time" {% if experience.employment_type == 'full_time' %} selected{% endif %}>Full Time</option>
+                    <option value="part_time" {% if experience.employment_type == 'part_time' %} selected{% endif %}>Part Time</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="company">Company:</label>
+                <input type="text" id="company" name="company" class="form-control" placeholder="Enter company name" value="{{experience.company}}">
+            </div>
+            <div class="form-group">
+                <label for="currently_working">Currently Working Here:</label>
+                <input type="checkbox" id="currently_working" name="currently_working" onchange="toggleEndDate()">
+            </div>
+            <div class="form-group">
+                <label for="start_date">Start Date:</label>
+                <input type="date" id="start_date" name="start_date" class="form-control" value="{{experience.start_date.isoformat}}">
+            </div>
+            <div class="form-group" id="end_date_group">
+                <label for="end_date">End Date:</label>
+                <input type="date" id="end_date" name="end_date" class="form-control" value="{{experience.end_date.isoformat}}">
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" class="form-control" placeholder="Location" value="{{experience.location}}">
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" class="form-control" placeholder="Experience description">{{experience.description}}</textarea>
+            </div>
+            <button type="submit" class="experience-btn-primary">Edit Experience</button>
+        </form>
+    </div>
 </div>
+
+<script>
+    function toggleEndDate() {
+        var endDateGroup = document.getElementById('end_date_group');
+        var endDateInput = document.getElementById('end_date');
+        if (document.getElementById('currently_working').checked) {
+            endDateGroup.style.display = 'none';
+            endDateInput.required = false;
+        } else {
+            endDateGroup.style.display = 'block';
+            endDateInput.required = true;
+        }
+    }
+</script>
 {% endblock %}
+

@@ -82,6 +82,7 @@ nav ul li a {
     right: 60px; /* Adjust this value to set the distance from the right */
 }
 
+
 footer {
     text-align: center;
     padding: 20px;
@@ -342,6 +343,7 @@ footer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 2rem;
+
 }
 
 .message-box {
@@ -360,5 +362,5 @@ footer {
 }
 
 .add-button.green-button:hover {
-    background-color: #86c9a9; /* Darker green on hover */
+    background-color: #86c9a9; 
 }

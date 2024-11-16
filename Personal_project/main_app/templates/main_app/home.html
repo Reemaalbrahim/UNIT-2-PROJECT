@@ -14,11 +14,18 @@
     }
     .separation h1 {
         color:#f2f8f3;
-
     }
     .separation h2 {
         color:#dae8fb;
-
+    }
+    .info-container {
+        position: absolute; /* Positioning it absolutely */
+        top: 420px; /* Adjust this value to position it below the welcome text */
+        right: 70px; /* Adjust this value for right-side alignment */
+        color:#e4ecf7; /* Text color */
+        padding: 20px; /* Padding for the container */
+        border-radius: 10px; /* Rounded corners */
+        font-family: 'Roboto', sans-serif; /* Font family */
     }
 </style>
 
@@ -26,22 +33,22 @@
     <div class="welcome-text">
         <h1 class="typing-text"></h1>
     </div>
+    <div class="info-container">
+        <h2>An AI engineer and Full stack web developer !</h2>
+    </div>
 </div>
 
-<div class="about-background" id="about"> <!-- Added ID here -->
+<div class="about-background" id="about">
     <h1>About Me</h1>
     <h2>This is Reema Albrahim. An AI engineer and full-stack web developer, I am driven by a relentless pursuit of innovation, leveraging cutting-edge technologies to craft intelligent, user-centric digital solutions that push the boundaries of what's possible.</h2>
 </div> 
 
 <div class="separation" id="education"> 
     <h1>My Education</h1>
-    <h2>I am a recent graduate with a Bachelor's degree in Artificial Intelligence from Imam Abdulrahman Bin Faisal University
-            with a strong foundation in machine learning, data analytics, and programming.</h2>
-
+    <h2>I am a recent graduate with a Bachelor's degree in Artificial Intelligence from Imam Abdulrahman Bin Faisal University with a strong foundation in machine learning, data analytics, and programming.</h2>
 </div>
 
-
-
 {% endblock %}
+
 
 

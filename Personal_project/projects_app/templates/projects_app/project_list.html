@@ -13,15 +13,15 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        padding: 0 10px; /* Add some padding */
     }
 
     .project-card {
-        width: 16%;
-        margin: 1%;
-        background-color:#c4ddff;
+        width: calc(25% - 20px); /* Adjust width for larger screens */
+        margin: 10px; /* Margin for spacing */
+        background-color: #c4ddff;
         border-radius: 5px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        margin-bottom: 100px;
         transition: transform 0.3s ease-in-out;
     }
 
@@ -31,14 +31,13 @@
 
     .project-image {
         width: 100%;
-        height: 210px;
-        object-fit: cover;
+        height: 290px;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
     }
 
     .project-content {
-        padding: 10px;
+        padding: 20px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -54,6 +53,25 @@
     .project-description {
         font-size: 0.9rem;
     }
+
+    /* Responsive Styles */
+    @media (max-width: 1200px) {
+        .project-card {
+            width: calc(33.33% - 20px); /* 3 cards per row */
+        }
+    }
+
+    @media (max-width: 800px) {
+        .project-card {
+            width: calc(50% - 20px); /* 2 cards per row */
+        }
+    }
+
+    @media (max-width: 600px) {
+        .project-card {
+            width: 100%; /* 1 card per row */
+        }
+    }
 </style>
 
 <h1 style="color: white; text-align: center; margin-top: 30px;">My Projects</h1>
@@ -62,7 +80,7 @@
     <div class="project-card">
         <img src="{{ project.image.url }}" alt="{{ project.title }}" class="project-image">
         <div class="project-content">
-            <a href ="{% url 'projects_app:project_detail_view' project.id %}"><h2 class="project-title">{{ project.title }}</h2></a>
+            <a href="{% url 'projects_app:project_detail_view' project.id %}"><h2 class="project-title">{{ project.title }}</h2></a>
         </div>
     </div>
     {% endfor %}

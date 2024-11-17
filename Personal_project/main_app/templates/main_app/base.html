@@ -3,10 +3,82 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensure responsiveness -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
     <title>Reema | Portfolio</title>
+    <style>
+        /* Added styles for header responsiveness */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #002352;
+            position: sticky;
+        }
+
+        .logo img {
+            height: 80px; 
+        }
+
+        nav {
+            display: flex; /* Default to flex for larger screens */
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex; /* Flex layout for menu items */
+        }
+
+        nav ul li {
+            display: inline;
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #c4ddff;
+        }
+
+        /* Styles for the hamburger menu */
+        .hamburger {
+            display: none; /* Hidden by default */
+            flex-direction: column; /* Stack lines vertically */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+
+        .line {
+            height: 3px;
+            width: 25px;
+            background-color: #c4ddff;
+            margin: 3px 0; /* Space between lines */
+        }
+
+        /* Media query for mobile view */
+        @media (max-width: 768px) {
+            nav {
+                display: none; /* Hide nav by default on mobile */
+                flex-direction: column; /* Stack items vertically */
+                width: 100%; /* Full width */
+                background-color: #002352; /* Background color */
+                position: absolute; /* Position absolute */
+                top: 80px; /* Adjust based on header height */
+                left: 0; /* Align to the left */
+                z-index: 1000; /* Ensure it appears above other elements */
+            }
+
+            nav.active {
+                display: flex; /* Show nav when active */
+            }
+
+            .hamburger {
+                display: flex; /* Show hamburger on mobile */
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -16,7 +88,12 @@
             <img src="{% static 'images/portfolio_logo.png' %}" alt="Portfolio Logo">
         </a>
     </div>
-    <nav>
+    <div class="hamburger" id="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <nav id="nav-menu">
         <ul>
             <li class="dropdown">
                 <a href="{% url 'main_app:home_view' %}#about">About</a>
@@ -52,28 +129,14 @@
     </div>
 </footer>
 
-</body>
-</html>
-
 <script>
-    const typingText = document.querySelector('.typing-text');
-    const welcomeMessage = "This is Reema's portfolio";
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
 
-    let index = 0;
-    function typeWriter() {
-        if (index < welcomeMessage.length) {
-            typingText.textContent += welcomeMessage.charAt(index);
-            index++;
-            setTimeout(typeWriter, 100);
-        }
-    }
-
-    typeWriter();
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active'); // Toggle the active class
+    });
 </script>
 
-
-
-
-
-
-
+</body>
+</html>

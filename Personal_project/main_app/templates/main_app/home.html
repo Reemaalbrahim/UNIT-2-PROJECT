@@ -44,23 +44,18 @@
     .home-background {
         background-image: url('/static/images/ai.png');
         background-color: #002352;
-        background-size: cover;
+        background-size: cover; /* Cover the entire area */
+        background-position: center; /* Center the image */
         color: #f2f8f3;
         margin: 0;
         padding: 20px;
         display: flex;
         justify-content: center; /* Center content horizontally */
         align-items: center; /* Center content vertically */
-        height: 100vh;
+        height: 100vh; /* Full viewport height */
         position: relative; /* Allow absolute positioning of children */
         flex-direction: column; /* Stack elements vertically */
-    }
-
-    .welcome-text {
-        color: #e3ebed;
-        font-size: 25px;
-        text-align: center; /* Center text */
-        margin: 20px 0; /* Margin for spacing */
+        margin-bottom: 100px;
     }
 
     .static-info {
@@ -69,6 +64,7 @@
         margin-top: 0px; /* Space between sections */
         font-family: 'Roboto', sans-serif; /* Change the font family */
         text-align: center; /* Center text */
+        padding-left: 500px;
     }
 
     .about-background, .separation {
@@ -79,6 +75,7 @@
         text-align: center; /* Center text */
         padding-bottom: 100px;
         padding-top: 100px;
+        
     }
 
     .separation, .about-background h1 {
@@ -89,37 +86,37 @@
         text-align: center; /* Center text */
     }
 
-    .separation h2 {
+    .separation h2, .about-background h2 {
         color: #c4ddff; /* Dark gray for text */
         text-align: center; /* Center text */
         font-size: 20px; /* Default font size */
         padding: 5px; /* Add padding for spacing */
     }
-    .about-background h2{
-        color: #c4ddff; /* Dark gray for text */
-        text-align: center; /* Center text */
-        font-size: 20px; /* Default font size */
-        padding: 5px; /* Add padding for spacing */
-    }
-    .about-background {
-    background-color: #1b3858; /* Box background color */
-    border-radius: 10px; /* Rounded corners */
-    padding: 10px; /* Padding inside the box */
-    margin: 20px auto; /* Center the box */
-    max-width: 900px; /* Maximum width for the box */
-    color: #142f53; /* Text color */
-    text-align: center; /* Center text */
-}
 
+    .about-background {
+        background-color: #1b3858; /* Box background color */
+        border-radius: 10px; /* Rounded corners */
+        padding: 10px; /* Padding inside the box */
+        margin: 20px auto; /* Center the box */
+        max-width: 900px; /* Maximum width for the box */
+        color: #142f53; /* Text color */
+        text-align: center; /* Center text */
+        margin-bottom: 90px;
+    }
 
     /* Media Queries for Responsiveness */
     @media (max-width: 768px) {
         .home-background {
             padding: 10px; /* Reduce padding on smaller screens */
+            height: auto; /* Allow height to adjust */
+            min-height: 50vh; /* Minimum height for smaller screens */
+            margin-bottom: 0px;
         }
 
         .static-info {
             padding: 20px; /* Increase padding for better spacing */
+            font-size: 7px; /* Smaller font size */
+            margin-left: 160px;
         }
 
         .about-background, .separation {
@@ -129,26 +126,14 @@
         .about-background h2, .separation h2 {
             font-size: 14px; /* Smaller text size */
         }
-    }
 
-    @media (max-width: 480px) {
-        .home-background {
-            padding: 5px; /* Further reduce padding */
-        }
-
-        .static-info {
-            padding: 15px; /* Further reduce padding */
-        }
-
-        .about-background, .separation {
-            padding: 10px; /* Further reduce padding */
-        }
-
-        .about-background h2, .separation h2 {
-            font-size: 12px; /* Even smaller text size */
+        .explore-button {
+            padding: 8px 10px; /* Reduce button padding */
+            font-size: 10px; /* Smaller button font size */
         }
     }
 
+    
     footer {
         text-align: center;
         padding: 20px;
@@ -172,30 +157,32 @@
         text-decoration: none; /* Remove underline */
         border-radius: 30px; /* Rounded corners */
         margin-top: 20px; /* Space above the button */
-        margin-bottom: 70px;
+        margin-bottom: 40px;
         font-size: 16px; /* Font size */
         transition: background-color 0.3s, transform 0.3s; /* Transition effects */
         border: none; /* No border */
     }
 
     .explore-button:hover {
-        background-color: #0056b3; /* Darker blue on hover */
+        background-color: #002352; /* Darker blue on hover */
         transform: scale(1.05); /* Slightly enlarge on hover */
     }
+
     .education-image {
-    max-width: 150px; /* Set a small width */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Centering */
-    margin: 20px auto; /* Center the image and add space above/below */
-}
+        max-width: 150px; /* Set a small width */
+        height: auto; /* Maintain aspect ratio */
+        display: block; /* Centering */
+        margin: 20px auto; /* Center the image and add space above/below */
+    }
+
     .portfolio-image {
         width: 120px;
         height: 120px;
         border: 2px solid #1b3e6b;
         border-radius: 50%;
+    }
 
-}
-.scroll-to-top {
+    .scroll-to-top {
         position: fixed;
         bottom: 20px;
         right: 20px;
@@ -220,31 +207,26 @@
 </style>
 
 <div class="home-background">
-    
+    <div class="static-info">
+        <h1>This is Reema's Portfolio</h1>
+        <h2>An AI engineer and Full stack web developer!</h2>
+        <a href="{% url 'projects_app:project_list_view' %}" class="explore-button">Explore more!</a>
+        <!-- Scroll to Top Button -->
+        <button class="scroll-to-top" id="scrollToTopBtn" title="Go to top">↑</button>
+    </div>
 </div>
-
-<div class="static-info">
-    <h1>This is Reema's Portfolio</h1>
-    <h2>An AI engineer and Full stack web developer!</h2>
-    <a href="{% url 'projects_app:project_list_view' %}" class="explore-button">Explore more!</a>
-    <!-- Scroll to Top Button -->
-    <button class="scroll-to-top" id="scrollToTopBtn" title="Go to top">↑</button>
-</div>
-
-
 
 <div class="about-background" id="about">
     <h1>About Me</h1>
     <h2>This is Reema Albrahim. An AI engineer and full-stack web developer, I am driven by a relentless pursuit of innovation, leveraging cutting-edge technologies to craft intelligent, user-centric digital solutions that push the boundaries of what's possible.</h2>
-    <img src=/static/images/portfolio_contact_me.jpg  alt="portfolio" class="portfolio-image">
+    <img src="/static/images/portfolio_contact_me.jpg" alt="portfolio" class="portfolio-image">
 </div> 
 
 <div class="separation" id="education"> 
     <h1>My Education</h1>
     <h2>Bachelors | Imam Abdulrahman Bin Faisal University</h2>
     <h2>Artificial Intelligence</h2>
-
-    <img src=/static/images/iau.png  alt="Imam Abdulrahman Bin Faisal University" class="education-image">
+    <img src="/static/images/iau.png" alt="Imam Abdulrahman Bin Faisal University" class="education-image">
 </div>
 
 <script>
@@ -266,3 +248,5 @@
     };
 </script>
 {% endblock %}
+
+

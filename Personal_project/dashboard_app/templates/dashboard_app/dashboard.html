@@ -5,6 +5,108 @@
 
 {% block content %}
 
+<style>
+    .dashboard-container {
+        padding: 20px;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .experiences-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    .experiences-table th, .experiences-table td {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .project-card {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        overflow: hidden;
+        transition: box-shadow 0.3s;
+    }
+
+    .project-card:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .messages-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .message-box {
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+    @media (max-width: 768px) {
+        .section-header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .experiences-table {
+            display: block;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .experiences-table th, .experiences-table td {
+            display: block;
+            text-align: right;
+            position: relative;
+            padding-left: 50%;
+            border: none; /* Remove borders for better mobile view */
+        }
+
+        .experiences-table th {
+            display: none; /* Hide headers for mobile */
+        }
+
+        .experiences-table td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 10px;
+            width: 50%;
+            padding-left: 10px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .experiences-table td {
+            border-bottom: 1px solid #ddd; /* Add bottom border for separation */
+        }
+    }
+</style>
+
 <div class="dashboard-container">
     <h1>Reema's Dashboard</h1>
 
@@ -28,11 +130,11 @@
             <tbody>
                 {% for experience in experiences %}
                 <tr>
-                    <td>{{ experience.title }}</td>
-                    <td>{{ experience.company }}</td>
-                    <td>{{ experience.start_date }}</td>
-                    <td>{% if experience.currently_working %}Present{% else %}{{ experience.end_date }}{% endif %}</td>
-                    <td class="actions-cell">
+                    <td data-label="Title">{{ experience.title }}</td>
+                    <td data-label="Company">{{ experience.company }}</td>
+                    <td data-label="Start Date">{{ experience.start_date }}</td>
+                    <td data-label="End Date">{% if experience.currently_working %}Present{% else %}{{ experience.end_date }}{% endif %}</td>
+                    <td class="actions-cell" data-label="Actions">
                         <a href="{% url 'dashboard_app:edit_experience_view' experience.id %}" class="edit-button">Edit</a>
                         <a href="{% url 'dashboard_app:delete_experience_view' experience.id %}" class="delete-button">Delete</a>
                     </td>

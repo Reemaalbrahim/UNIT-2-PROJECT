@@ -8,31 +8,69 @@
     body {
         background-color: #002352;
         color: #002352;
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default padding */
+        font-family: Arial, sans-serif; /* Set a default font */
     }
+
     .content-container {
         background-color: #c4ddff;
         padding: 30px;
         border-radius: 10px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         max-width: 800px;
-        width: 100%;
+        width: 90%; /* Use a percentage for better responsiveness */
         margin: 50px auto;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
+
     .image {
-        width: 50%;
+        width: 100%; /* Full width for responsiveness */
+        max-width: 400px; /* Limit max width for larger screens */
         max-height: 350px;
         border-radius: 5px;
         margin-bottom: 20px;
+        object-fit: cover; /* Maintain aspect ratio */
+    }
+
+    h1 {
+        color: #002352; /* Maintain color for the title */
+        text-align: center; /* Center the title */
+        font-size: 2rem; /* Increase font size for better visibility */
+        margin-bottom: 20px; /* Space below the title */
+    }
+
+    h4 {
+        color: #002352; /* Maintain color for the description */
+        text-align: center; /* Center the description */
+        font-size: 1rem; /* Set a reasonable font size */
+        margin: 0; /* Remove default margin */
+        padding: 0 10px; /* Padding for smaller screens */
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 600px) {
+        .image {
+            max-width: 90%; /* Full width on smaller screens */
+        }
+
+        h1 {
+            font-size: 1.5rem; /* Smaller title font size */
+        }
+
+        h4 {
+            font-size: 0.9rem; /* Smaller description font size */
+        }
     }
 </style>
 
 <div class="content-container">
     <h1>{{ project.title }}</h1>
-    <img src="{{ project.image.url }}" class="image">
+    <img src="{{ project.image.url }}" class="image" alt="{{ project.title }}">
     <h4>{{ project.description }}</h4>
 </div>
 {% endblock %}
+
 

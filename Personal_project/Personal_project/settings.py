@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,6 +28,7 @@ SECRET_KEY = 'django-insecure-6no*izt8b&m40k17j_sol_o40c8^hiqaiu3%77j889qb-#_u6g
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ["reemaalbrahim.up.railway.app", "127.0.0.1"]
 
 
 # Application definition
@@ -89,6 +91,8 @@ DATABASES = {
         'HOST': os.environ["PGHOST"],
         'PORT': os.environ["PGPORT"],
     }
+
+    
 } if not DEBUG else {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',

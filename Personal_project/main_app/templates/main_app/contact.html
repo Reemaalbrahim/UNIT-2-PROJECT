@@ -6,7 +6,7 @@
 <style>
     body {
         background-color: #002352; 
-        color: white; 
+        color: #002352; 
         font-family: 'Arial', sans-serif;
         margin: 0;
         padding: 0;
@@ -29,13 +29,24 @@
     
 </style>
 
+{% if messages %}
+  <div class="notification-container">
+    {% for message in messages %}
+      <div class="notification {{ message.tags }}">
+        {{ message }}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
+
 <div class="contact-background">
     <div class="contact-welcome-text">
         <h2>Feel free to reach out with any questions or collaboration ideas!</h2>
     </div>
     <div class="contact-container">
         <h1>Contact me</h1>
-        <form method="post" action="{% url 'main_app:messages_view' %}">
+        <form method="post" action="{% url 'main_app:contact_view' %}">
             {% csrf_token %}
             <div class="form-group">
                 <label for="first_name">First Name:</label>
@@ -53,8 +64,9 @@
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" class="form-control" required></textarea>
             </div>
-            <button type="submit" class="contact-btn-primary">Submit</button>
+            <button type="submit" class="contact-btn-primary">Send</button>
         </form>
     </div>
 </div>
 {% endblock %}
+

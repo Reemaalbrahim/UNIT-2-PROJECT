@@ -229,24 +229,6 @@
     <img src="/static/images/iau.png" alt="Imam Abdulrahman Bin Faisal University" class="education-image">
 </div>
 
-<script>
-    // Get the button
-    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-
-    // Show or hide the button based on scroll position
-    window.onscroll = function() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            scrollToTopBtn.style.display = "block"; // Show button
-        } else {
-            scrollToTopBtn.style.display = "none"; // Hide button
-        }
-    };
-
-    // Scroll to top function
-    scrollToTopBtn.onclick = function() {
-        window.scrollTo({ top: 0, behavior: 'smooth' }); // Smooth scroll to top
-    };
-</script>
 {% endblock %}
 
 

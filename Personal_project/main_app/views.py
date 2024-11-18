@@ -5,27 +5,30 @@ from .models import Message
 def home_view(request):
     return render(request, 'main_app/home.html')
 
+from django.shortcuts import render
+from django.core.mail import send_mail
+from .models import Message  
+
 def contact_view(request):
+    success_message = None  # Initialize the success message variable
     if request.method == 'POST':
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         email = request.POST['email']
         message = request.POST['message']
+
         
-       
-        Message.objects.create(first_name=first_name, last_name=last_name, email=email, message=message)
+        if not Message.objects.filter(first_name=first_name, last_name=last_name, email=email,message=message).exists():
+            new_message = Message(first_name=first_name, last_name=last_name, email=email,message=message)
+            new_message.save()
+            success_message = "Message sent successfully!"  # Set the success message
 
-        # Send email (optional)
-        send_mail(
-            f'Message from {first_name} {last_name}',
-            message,
-            email,
-            ['your_email@example.com'],
-            fail_silently=False,
-        )
-        return redirect('messages')
 
+        else:
+            success_message.info(request, "It seems you've already submitted this message.")
+        
     return render(request, 'main_app/contact.html')
+
 
 def messages_view(request):
     if request.method == 'POST':
@@ -49,4 +52,3 @@ def messages_view(request):
 
 def resume_view(request):
     return render(request, 'main_app/resume.html')
-

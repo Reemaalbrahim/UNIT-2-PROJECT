@@ -28,7 +28,10 @@ SECRET_KEY = 'django-insecure-6no*izt8b&m40k17j_sol_o40c8^hiqaiu3%77j889qb-#_u6g
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ["reemaalbrahim.up.railway.app", "127.0.0.1"]
+CSRF_TRUSTED_ORIGINS = [
+    'http://127.0.0.1',
+    'https://reemaalbrahim.up.railway.app',
+]
 
 
 # Application definition
@@ -147,3 +150,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
+
+STATICFILES_DIRS = [
+    # 'C:\\Users\\rayoo\\Documents\\UNIT-2-PROJECT\\Personal_project\\static',  # Uncomment if needed
+]

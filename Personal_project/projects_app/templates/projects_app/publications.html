@@ -37,11 +37,34 @@
         max-width: 800px; /* Maximum width for larger screens */
         height: 80vh; /* Adjust height for better responsiveness */
         overflow: hidden; /* Hide overflow */
+        margin-bottom: 30px; /* Space between PDF container and buttons */
     }
     .publication-container iframe {
         width: 100%;
         height: 100%;
         border: none; /* Remove border */
+    }
+    .button-container {
+        display: flex;
+        justify-content: center; /* Center the buttons */
+        gap: 10px; /* Space between buttons */
+        flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    }
+    .download-btn, .discussion-btn {
+        background-color: #0056b3;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        flex: 1 1 150px; /* Allow buttons to grow and shrink with a minimum width */
+        text-align: center; /* Center text inside buttons */
+    }
+
+    .download-btn:hover, .discussion-btn:hover {
+        background-color: #83abe3;
     }
 
     /* Media Queries for responsiveness */
@@ -54,6 +77,10 @@
         }
         .publication-container {
             height: 60vh; /* Adjust height for smaller screens */
+        }
+        .download-btn, .discussion-btn {
+            font-size: 12px; /* Even smaller font size for buttons on small screens */
+            padding: 3px 6px; /* Further reduced padding for smaller screens */
         }
     }
 </style>
@@ -68,8 +95,16 @@
             <p>Your browser does not support PDF viewing. Please download the file to view it.</p>
         </iframe>
     </div>
+
+    <div class="button-container">
+        <a href="{% static 'pdf/hypoxia_publication.pdf' %}" class="download-btn" download>Download Paper</a>
+        <a href="{% url 'main_app:contact_view' %}" class="discussion-btn">For Further Discussion</a>
+    </div>
 </div>
 {% endblock %}
+
+
+
 
 
 

@@ -17,7 +17,7 @@
     }
 
     .project-card {
-        width: calc(25% - 20px); /* Adjust width for larger screens */
+        width: calc(25% - 20px); /* Default width for larger screens */
         margin: 10px; /* Margin for spacing */
         background-color: #c4ddff;
         border-radius: 5px;
@@ -34,6 +34,7 @@
         height: 290px;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
+        object-fit: cover; /* Maintain aspect ratio */
     }
 
     .project-content {
@@ -54,7 +55,7 @@
         font-size: 0.9rem;
     }
 
-    /* Responsive Styles */
+    /* Responsive styles */
     @media (max-width: 1200px) {
         .project-card {
             width: calc(33.33% - 20px); /* 3 cards per row */
@@ -67,14 +68,22 @@
         }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 500px) {
         .project-card {
-            width: 100%; /* 1 card per row */
+            width: calc(100% - 20px); /* 1 card per row */
+            margin-bottom: 50px;
+            margin-top: 30px;
+            padding: 20px;
         }
+
+        .project-image {
+            height: 290px; /* Adjust image height for smaller screens */
+        }
+        
     }
 </style>
 
-<h1 style="color: white; text-align: center; margin-top: 30px;">My Projects</h1>
+<h1 style="color: white; text-align: center; margin-top: 70px;">Featured Projects</h1>
 <div class="project-list-container">
     {% for project in projects %}
     <div class="project-card">
@@ -86,6 +95,8 @@
     {% endfor %}
 </div>
 {% endblock %}
+
+
 
 
 

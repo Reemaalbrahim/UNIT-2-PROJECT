@@ -15,12 +15,12 @@
 
     .content-container {
         background-color: #c4ddff;
-        padding: 30px;
+        padding: 20px; /* Reduced padding for smaller screens */
         border-radius: 10px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         max-width: 800px;
         width: 90%; /* Use a percentage for better responsiveness */
-        margin: 50px auto;
+        margin: 20px auto; /* Reduced margin for smaller screens */
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -28,8 +28,8 @@
 
     .image {
         width: 100%; /* Full width for responsiveness */
-        max-width: 400px; /* Limit max width for larger screens */
-        max-height: 350px;
+        max-width: 30%; /* Limit max width for larger screens */
+        height: auto; /* Maintain aspect ratio */
         border-radius: 5px;
         margin-bottom: 20px;
         object-fit: cover; /* Maintain aspect ratio */
@@ -51,17 +51,35 @@
     }
 
     /* Responsive Styles */
-    @media (max-width: 600px) {
-        .image {
-            max-width: 90%; /* Full width on smaller screens */
+    @media (max-width: 768px) {
+        .content-container {
+            padding: 10px; /* Adjust padding */
+        
         }
 
         h1 {
-            font-size: 1.5rem; /* Smaller title font size */
+            font-size: 1.75rem; /* Smaller title font size */
         }
 
         h4 {
-            font-size: 0.9rem; /* Smaller description font size */
+            font-size: 0.95rem; /* Smaller description font size */
+        }
+    }
+
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 1.2rem; /* Smaller title font size */
+        }
+
+        h4 {
+            font-size: 0.85rem; /* Smaller description font size */
+        }
+
+        .content-container {
+            margin: 10px; /* Reduce margin for very small screens */
+        }
+        .image {
+            max-width: 40%;
         }
     }
 </style>
@@ -72,5 +90,6 @@
     <h4>{{ project.description }}</h4>
 </div>
 {% endblock %}
+
 
 

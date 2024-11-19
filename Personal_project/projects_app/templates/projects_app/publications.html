@@ -7,34 +7,60 @@
 <style>
     body {
         background-color: #002352;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
     }
     .container {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 120vh;
+        height: 100vh; /* Changed to 100vh for better responsiveness */
+        padding: 20px; /* Added padding for smaller screens */
+        box-sizing: border-box; /* Ensures padding is included in height */
     }
     h1 {
         color: #e3ebed;
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 20px; /* Adjusted margin for better spacing */
+        font-size: 2rem; /* Responsive font size */
+    }
+    h3 {
+        text-align: center;
+        color: #cfd9e6;
+        font-size: 1.5rem; /* Responsive font size */
+        margin-bottom: 20px; /* Added margin for spacing */
     }
     .publication-container {
-        width: 80%;
-        height: 80%;
+        width: 100%; /* Full width for small screens */
+        max-width: 800px; /* Maximum width for larger screens */
+        height: 80vh; /* Adjust height for better responsiveness */
     }
     .publication-container iframe {
         width: 100%;
         height: 100%;
         border: none; /* Remove border */
     }
+
+    /* Media Queries for responsiveness */
+    @media (max-width: 600px) {
+        h1 {
+            font-size: 1.5rem; /* Smaller font size for small screens */
+        }
+        h3 {
+            font-size: 1rem; /* Smaller font size for small screens */
+        }
+        .publication-container {
+            height: 60vh; /* Adjust height for smaller screens */
+        }
+    }
 </style>
 <div class="container">
     <h1 style="text-align: center; margin-top: 40px; color: #b9c8dd; 
     background-color: #1c466f; padding: 10px; border-radius: 10px;">Publications</h1>
 
-    <h3 style="text-align: center; color: #cfd9e6" >MDPI | Fetal Hypoxia Detection Using Machine Learning: A arrative Review</h3>
+    <h3>MDPI | Fetal Hypoxia Detection Using Machine Learning: A Narrative Review</h3>
     <div class="publication-container">
         <iframe src="{% static 'pdf/hypoxia_publication.pdf' %}" 
                 type="application/pdf">
@@ -43,6 +69,7 @@
     </div>
 </div>
 {% endblock %}
+
 
 
 

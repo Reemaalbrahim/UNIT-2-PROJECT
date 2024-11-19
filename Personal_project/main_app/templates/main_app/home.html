@@ -93,6 +93,10 @@
         padding: 5px; /* Add padding for spacing */
         margin-bottom: 30px;
     }
+    .separation h3{
+        margin-bottom: 50px;
+        color: #c4ddff;
+        }
 
     .about-background {
         background-color: #1b3858; /* Box background color */
@@ -104,66 +108,6 @@
         text-align: center; /* Center text */
         margin-bottom: 90px;
     }
-
-    /* Media Queries for Responsiveness */
-    @media (max-width: 768px) {
-        .home-background {
-            padding: 10px; /* Reduce padding on smaller screens */
-            height: auto; /* Allow height to adjust */
-            min-height: 50vh; /* Minimum height for smaller screens */
-            margin-bottom: 0px;
-        }
-
-        .static-info {
-            padding: 20px; /* Increase padding for better spacing */
-            font-size: 7px; /* Smaller font size */
-            margin-left: 160px;
-        }
-
-        .about-background {
-            padding: 10px; /* Reduce padding for smaller screens */
-            margin-top: 0px;
-        }
-        .separation {
-            padding: 15px; /* Reduce padding for smaller screens */
-        }
-
-        .about-background h1{
-            margin-bottom: 10px;
-            margin-top: 60px;
-            font-size: 25px;
-        }
-        .separation h1{
-            font-size: 25px;
-            margin-top: 0px;
-        }
-
-        .about-background h2, .separation h2 {
-            font-size: 14px; /* Smaller text size */
-        }
-
-        .explore-button {
-            padding: 8px 10px; /* Reduce button padding */
-            font-size: 10px; /* Smaller button font size */
-        }
-    }
-
-    
-    footer {
-        text-align: center;
-        padding: 20px;
-        background-color: #002352;
-        color: #c4ddff;
-        padding: 10px 0;
-        bottom: 0;
-    }
-
-    .footer-links a {
-        margin: 0 10px;
-        text-decoration: none;
-        color: #e3ebed;
-    }
-
     .explore-button {
         display: inline-block; /* Make it inline-block to allow padding */
         padding: 12px 24px; /* Padding for the button */
@@ -198,26 +142,77 @@
         margin-bottom: 30px;
     }
 
-    .scroll-to-top {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        display: none; /* Hidden by default */
-        background-color: #78adea; /* Button color */
-        color: white; /* Text color */
-        border: none; /* No border */
-        border-radius: 50%; /* Round button */
-        width: 50px; /* Button size */
-        height: 50px; /* Button size */
-        cursor: pointer; /* Pointer cursor on hover */
-        font-size: 24px; /* Font size */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow effect */
-        transition: background-color 0.3s; /* Transition effect */
-        z-index: 1000; /* Ensure the button is above other elements */
+
+    /* Media Queries for Responsiveness */
+    @media (max-width: 768px) {
+        .home-background {
+            padding: -10px; /* Reduce padding on smaller screens */
+            height: auto; /* Allow height to adjust */
+            min-height: 30vh; /* Minimum height for smaller screens */
+            margin-bottom: 0px;
+        }
+
+        .static-info {
+            padding: 20px; /* Increase padding for better spacing */
+            font-size: 7px; /* Smaller font size */
+            margin-left: 160px;
+        }
+        .static-info h2{
+            color: #e4ebf7;
+        }
+
+        .about-background {
+            padding: 10px; /* Reduce padding for smaller screens */
+            margin-top: 0px;
+            border-radius: 0px; /* Rounded corners */
+        }
+        .separation {
+            padding: 15px; /* Reduce padding for smaller screens */
+        }
+
+        .about-background h1{
+            margin-bottom: 10px;
+            margin-top: 60px;
+            font-size: 16px;
+        }
+        .separation h1{
+            font-size: 16px;
+            margin-top: 0px;
+        }
+        .separation h3{
+            font-size: 12px;
+            margin-top: -15px;
+            margin-bottom: 20px;
+            color: #c4ddff;
+        }
+
+        .separation h2 {
+            font-size: 14px; /* Smaller text size */
+        }
+        .about-background h2, .separation h2 {
+            font-size: 12px; /* Smaller text size */
+        }
+        .explore-button {
+            padding: 8px 10px; /* Smaller padding on small screens */
+            font-size: 8px; /* Smaller font size on small screens */
+    }
+    
     }
 
-    .scroll-to-top:hover {
-        background-color: #0056b3; /* Darker blue on hover */
+    
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #002352;
+        color: #c4ddff;
+        padding: 10px 0;
+        bottom: 0;
+    }
+
+    .footer-links a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: #e3ebed;
     }
 
 </style>
@@ -227,21 +222,19 @@
         <h1>This is Reema's Portfolio</h1>
         <h2>An AI engineer and Full stack web developer!</h2>
         <a href="{% url 'projects_app:project_list_view' %}" class="explore-button">Explore more!</a>
-        <!-- Scroll to Top Button -->
-        <button class="scroll-to-top" id="scrollToTopBtn" title="Go to top">↑</button>
     </div>
 </div>
 
 <div class="about-background" id="about">
     <h1>About Me</h1>
-    <h2>This is Reema Albrahim. An AI engineer and full-stack web developer, I am driven by a relentless pursuit of innovation, leveraging cutting-edge technologies to craft intelligent, user-centric digital solutions that push the boundaries of what's possible.</h2>
+    <h2>This is Reema Albrahim. An AI engineer and full-stack web developer driven by a relentless pursuit of innovation. With expertise in machine learning, data analytics, and programming, I create intelligent, user-centric digital solutions that push the boundaries of what's possible</h2>
     <img src="/static/images/Portfolio_contact_me.jpg" alt="portfolio" class="portfolio-image">
 </div> 
 
 <div class="separation" id="education"> 
     <h1>My Education</h1>
     <h2>Bachelors | Imam Abdulrahman Bin Faisal University</h2>
-    <h2>Artificial Intelligence Degree</h2>
+    <h3>Artificial Intelligence Degree</h3>
     <img src="/static/images/iau.png" alt="Imam Abdulrahman Bin Faisal University" class="education-image">
 </div>
 

@@ -70,20 +70,25 @@
 
     @media (max-width: 500px) {
         .project-card {
-            width: calc(100% - 20px); /* 1 card per row */
+            width: calc(40% - 10px); /* 1 card per row */
             margin-bottom: 50px;
             margin-top: 30px;
-            padding: 20px;
+            padding: 10px;
         }
 
         .project-image {
-            height: 290px; /* Adjust image height for smaller screens */
+            height: 130px; /* Adjust image height for smaller screens */
         }
+        .project-title {
+        font-size: 0.6rem;
+        margin-bottom: -15px;
+
+    }
         
     }
 </style>
 
-<h1 style="color: white; text-align: center; margin-top: 70px;">Featured Projects</h1>
+<h1 style="color: #b9c8dd; text-align: center; margin-top: 70px;">Featured Projects</h1>
 <div class="project-list-container">
     {% for project in projects %}
     <div class="project-card">

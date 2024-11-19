@@ -86,12 +86,22 @@
         text-align: center; /* Center text */
     }
 
-    .separation h2, .about-background h2 {
+    .separation h2{
         color: #c4ddff; /* Dark gray for text */
         text-align: center; /* Center text */
         font-size: 20px; /* Default font size */
         padding: 5px; /* Add padding for spacing */
         margin-bottom: 30px;
+
+    }
+    .about-background h2 {
+        color: #c4ddff; /* Dark gray for text */
+        text-align: center; /* Center text */
+        font-size: 20px; /* Default font size */
+        padding: 5px; /* Add padding for spacing */
+        margin-bottom: 30px;
+        text-align: justify; /* Justify text */
+
     }
     .separation h3{
         margin-bottom: 50px;
@@ -189,8 +199,14 @@
         .separation h2 {
             font-size: 14px; /* Smaller text size */
         }
-        .about-background h2, .separation h2 {
+        .separation h2 {
             font-size: 12px; /* Smaller text size */
+        }
+        .about-background h2{
+            font-size: 12px; /* Smaller text size */
+            text-align: justify; /* Justify text */
+            padding: 18px;
+            margin-top: -15px;
         }
         .explore-button {
             padding: 8px 10px; /* Smaller padding on small screens */
@@ -205,6 +221,7 @@
         width: 80px; /* Smaller width on small screens */
         height: 80px; /* Maintain aspect ratio */
         margin-bottom: 20px; /* Adjust margin for smaller screens */
+        margin-top: -25px;
     }
     
     }

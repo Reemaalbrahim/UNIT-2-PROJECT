@@ -3,9 +3,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensure responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Reema | Portfolio</title>
     <style>
         /* Added styles for header responsiveness */
@@ -19,7 +19,7 @@
         }
 
         .logo img {
-            height: 80px; 
+            height: 80px;
             margin-bottom: -15px;
         }
 
@@ -58,6 +58,37 @@
             margin: 3px 0; /* Space between lines */
         }
 
+        /* Side table styles */
+        .side-table {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed position */
+            top: 0;
+            right: 0;
+            width: 250px; /* Width of the side table */
+            height: 100%; /* Full height */
+            background-color: rgb(82, 111, 143); 
+            color: #002352; /* Text color */
+            padding: 20px;
+            z-index: 1000; /* Ensure it appears above other elements */
+        }
+
+        .side-table table {
+            width: 100%; /* Full width for the table */
+            border-collapse: collapse; /* Collapse borders */
+        }
+
+        .side-table th, .side-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #c4ddff; /* Bottom border for rows */
+            color: #c4ddff; /* Change font color to red */
+        }
+
+        .side-table td a {
+            color: #c4ddff; /* Change link color to red */
+            text-decoration: none; /* Remove underline */
+        }
+
         /* Media query for mobile view */
         @media (max-width: 768px) {
             nav {
@@ -79,10 +110,9 @@
                 display: flex; /* Show hamburger on mobile */
             }
             .logo img {
-            margin-bottom: -20px;
-            margin-top: -10px;
-        }
-
+                margin-bottom: -20px;
+                margin-top: -10px;
+            }
         }
     </style>
 </head>
@@ -117,6 +147,36 @@
     </nav>
 </header>
 
+<div class="side-table" id="side-table">
+    <h2>Sections</h2>
+    <table>
+        <tr>
+            <td><a href="{% url 'main_app:home_view' %}#about">About</a></td>
+        </tr>
+        <tr>
+            <td><a href="{% url 'main_app:home_view' %}#education">Education</a></td>
+        </tr>
+        <tr>
+            <td><a href="{% url 'projects_app:publications_view' %}">Publications</a></td>
+        </tr>
+        <tr>
+            <td><a href="{% url 'main_app:resume_view' %}">Resume</a></td>
+        </tr>
+        <tr>
+            <td><a href="{% url 'education_app:skills_view' %}">Skills</a></td>
+        </tr>
+        <tr>
+            <td><a href="{% url 'experience_app:experience_list_view' %}">Experience</a></td>
+        </tr>
+        <tr>
+            <td><a href="{% url 'projects_app:project_list_view' %}">Projects</a></td>
+        </tr>
+        <tr>
+            <td><a href="{% url 'main_app:contact_view' %}">Contact Me</a></td>
+        </tr>
+    </table>
+</div>
+
 <main>
     {% block content %}
     {% endblock %}
@@ -125,12 +185,11 @@
 <footer>
     <p> &copy; 2024 by Reema Albrahim</p>
     <div class="footer-links">
-        <a href="https://www.linkedin.com/in/reema-albrahim-a62a14232/"><i class="fa-brands fa-linkedin "></i></a>
+        <a href="https://www.linkedin.com/in/reema-albrahim-a62a14232/"><i class="fa-brands fa-linkedin"></i></a>
         <a href="https://github.com/Reemaalbrahim"><i class="fa-brands fa-github"></i></a>
         <a href="mailto:reemaalbrahim28@gmail.com"><i class="fa-solid fa-envelope"></i></a>
         <a href="tel:+966564463367" class="phone-icon">
             <i class="fa-solid fa-phone"></i>
-            
         </a>
     </div>
 </footer>
@@ -138,11 +197,14 @@
 <script>
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
+    const sideTable = document.getElementById('side-table');
 
     hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('active'); // Toggle the active class
+        navMenu.classList.toggle('active'); // Toggle navigation menu
+        sideTable.style.display = sideTable.style.display === 'block' ? 'none' : 'block'; // Toggle side table
     });
 </script>
-
 </body>
 </html>
+
+

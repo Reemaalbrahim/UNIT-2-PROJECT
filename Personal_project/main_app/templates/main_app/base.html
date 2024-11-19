@@ -61,7 +61,7 @@
         /* Side table styles */
         .side-table {
             display: none; /* Hidden by default */
-            position: fixed; /* Fixed position */
+            position:fixed; /* Fixed position */
             top: 0;
             right: 0;
             width: 250px; /* Width of the side table */
@@ -112,6 +112,8 @@
             .logo img {
                 margin-bottom: -20px;
                 margin-top: -10px;
+            
+
             }
         }
     </style>
@@ -199,10 +201,19 @@
     const navMenu = document.getElementById('nav-menu');
     const sideTable = document.getElementById('side-table');
 
+    // Toggle the side table when the hamburger is clicked
     hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('active'); // Toggle navigation menu
-        sideTable.style.display = sideTable.style.display === 'block' ? 'none' : 'block'; // Toggle side table
-    });
+    sideTable.style.display = sideTable.style.display === 'block' ? 'none' : 'block';
+});
+
+// Close the side table when clicking outside of it
+    document.addEventListener('click', (event) => {
+    // Check if the click is outside the side table and the hamburger button
+    if (!sideTable.contains(event.target) && !hamburger.contains(event.target)) {
+        sideTable.style.display = 'none'; // Hide the side table
+    }
+});
+
 </script>
 </body>
 </html>

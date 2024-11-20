@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation Email</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .header {
+            background-color: #002352;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        .footer {
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+        img.logo {
+            max-width: 150px;
+            height: auto;
+        }
+        @media only screen and (max-width: 600px) {
+            .container {
+                width: 90%;
+                padding: 10px;
+            }
+            .header, .content, .footer {
+                padding: 15px;
+            }
+            img.logo {
+                max-width: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Message Sent Successfully!</h1>
+        </div>
+        <div class="content">
+            <p>Dear User,</p>
+            <p>Thank you for reaching out! Your message has been sent successfully. We appreciate your inquiry and will review it shortly.</p>
+            <p>If you have any further questions, feel free to contact us.</p>
+            <p>Best regards,<br>Reema Albrahim</p>
+        </div>
+        <div class="footer">
+            <p>Visit us at: <a href="https://reemaalbrahim.up.railway.app/">https://reemaalbrahim.up.railway.app/</a></p>
+        </div>
+    </div>
+</body>
+</html>

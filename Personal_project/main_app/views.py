@@ -35,7 +35,7 @@ def contact_view(request):
             email_message.content_subtype ="html"
             email_message.send()
 
-            content_html= f"user {first_name} {last_name} contacted you." + f"<br/> {message}"
+            content_html= f"user {first_name} {last_name} {email} contacted you." + f"<br/> {message}"
             send_to=email
             email_message= EmailMessage("Confirmation",content_html, settings.EMAIL_HOST_USER, [settings.EMAIL_HOST_USER])
             email_message.content_subtype ="html"
